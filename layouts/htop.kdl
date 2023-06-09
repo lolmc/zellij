@@ -1,0 +1,18 @@
+layout {
+    pane_template name="htop" {
+        command "htop"
+    }
+    pane_template name="htop-tree" {
+        command "htop"
+        args "--tree"
+        borderless true
+    }
+    // the below will create a template with four panes
+    // the top and bottom panes running htop and the two
+    // middle panes running "htop --tree" without a pane frame
+    htop
+    htop-tree
+    htop-tree
+    htop
+}
+
