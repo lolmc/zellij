@@ -1,3 +1,10 @@
+// The folder in which Zellij will look for layouts
+//
+layout_dir "/home/mcbridl/.config/zellij/layouts"
+
+// The folder in which Zellij will look for themes
+//
+theme_dir "/home/mcbridl/.config/zellij/themes"
 // If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
 keybinds {
     normal {
@@ -302,10 +309,4 @@ copy_command "xclip -selection clipboard" // x11
 //
 // mirror_session true
 
-// The folder in which Zellij will look for layouts
-//
-layout_dir "~/.config/zellij/layouts"
 
-// The folder in which Zellij will look for themes
-//
-theme_dir "~/.config/zellij/themes"
