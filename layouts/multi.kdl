@@ -1,5 +1,5 @@
 layout {
-    default_tab_template name="nvim" {
+    default_tab_template name="multi" {
         pane size=1 borderless=true {
             plugin location="zellij:tab-bar"
         }
@@ -8,20 +8,40 @@ layout {
             plugin location="zellij:status-bar"
         }
     }
-    tab split_direction="Vertical" {
+    // A full Tab to run Neovim
+    tab name="Neovim" {
+            pane command="nvim"
+        }
+    // Tab is a 50/50 split vertical pane
+    tab name="MidnightCommander" {
+            pane command="mc"
+        }
+    // The next Tab is for exploring multiple locations or running multiple commands
+    // in the same Tab space. 50/50 split vertical with the left 50% divided horizontally giving 3 panes.
+    tab name="Triple" split_direction="Vertical" {
+      pane
+      pane split_direction="horizontal" {
+        pane command="exa" {
+          args "--color" "always" "--octal-permissions" "--group-directories-first" "-la" "-s" "size"
+        }
+        pane command="git" {
+        args "log"
+        }
+      }
+    }
+    // Another 50/50 split Tab
+    tab name="Dual" split_direction="Vertical" {
         pane split_direction="Vertical" {
-            pane size="50%" 
+            pane size="50%"
             pane size="50%"
         }
     }
-    tab
-    tab split_direction="Vertical" {
-        pane split_direction="Vertical" {
-            pane size="50%"
-            pane size="50%"
+    // full Tab to run btop
+    tab name="btm" {
+        pane command="/home/mcbridl/.cargo/bin/btm"
         }
-    }
-    tab split_direction="Vertical" {
+    // A copied Rust dev Tab for running code and checking out relevant spaces during code run.
+    tab name="Dev" split_direction="Vertical" {
         pane split_direction="Vertical" {
             pane size="50%"
             pane size="50%" split_direction="Horizontal" {
