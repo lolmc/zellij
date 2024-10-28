@@ -29,10 +29,10 @@ keybinds {
     }
     pane {
         bind "Ctrl p" { SwitchToMode "Normal"; }
-        bind "h" "Left" { MoveFocus "Left"; }
-        bind "l" "Right" { MoveFocus "Right"; }
-        bind "j" "Down" { MoveFocus "Down"; }
-        bind "k" "Up" { MoveFocus "Up"; }
+        bind "h" "Left" { MoveFocus "Left"; SwitchToMode "Normal"; }
+        bind "l" "Right" { MoveFocus "Right"; SwitchToMode "Normal"; }
+        bind "j" "Down" { MoveFocus "Down"; SwitchToMode "Normal"; }
+        bind "k" "Up" { MoveFocus "Up"; SwitchToMode "Normal"; }
         bind "p" { SwitchFocus; }
         bind "n" { NewPane; SwitchToMode "Normal"; }
         bind "d" { NewPane "Down"; SwitchToMode "Normal"; }
@@ -242,9 +242,9 @@ plugins {
 // }
 
 // Choose the theme that is specified in the themes section.
-Default: "catpuccin"
+Default: "nord"
 //
-theme "catppuccin"
+theme "nord"
 
 // The name of the default layout to load on startup
 // Default:"default"
@@ -300,7 +300,7 @@ copy_command "xclip -selection clipboard" // x11
 // Path to the default editor to use to edit pane scrollbuffer
 // Default: $EDITOR or $VISUAL
 //
-// scrollback_editor "/usr/bin/vim"
+scrollback_editor "/usr/bin/nvim"
 
 // When attaching to an existing session with other users,
 // should the session be mirrored (true)
